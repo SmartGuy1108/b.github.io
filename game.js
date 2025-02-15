@@ -41,6 +41,7 @@ class Block {
 }
 
 function initializeGame() {
+    gameObjects = []; // Reset game objects
     for (let i = 0; i < 10; i++) {
         let x = Math.random() * (CANVAS_WIDTH - 50);
         let y = Math.random() * (CANVAS_HEIGHT - 50);
@@ -63,7 +64,13 @@ canvas.addEventListener('click', (event) => {
     const mouseY = event.clientY - rect.top;
 
     gameObjects.forEach(obj => obj.checkCollision(mouseX, mouseY));
+
+    // Restart game if all blocks are destroyed
+    if (gameObjects.every(obj => obj.isDestroyed)) {
+        initializeGame();
+    }
 });
 
 initializeGame();
 update();
+
