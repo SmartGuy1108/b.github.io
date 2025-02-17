@@ -43,6 +43,21 @@ h1 {
     background-color: #0056b3;
 }
 
+button#new-story-btn {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#new-story-btn:hover {
+    background-color: #218838;
+}
+
 /* Dark Mode */
 body.dark-mode {
     background-color: #333;
@@ -63,6 +78,15 @@ body.dark-mode {
     background-color: #0056b3;
 }
 
+button#new-story-btn.dark-mode {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button#new-story-btn.dark-mode:hover {
+    background-color: #218838;
+}
+
 /* Light Mode */
 body.light-mode {
     background-color: #f2f2f2;
@@ -81,4 +105,13 @@ body.light-mode {
 
 #choices button.light-mode:hover {
     background-color: #0056b3;
+}
+
+button#new-story-btn.light-mode {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button#new-story-btn.light-mode:hover {
+    background-color: #218838;
 }

@@ -4,6 +4,7 @@ const storyElement = document.getElementById('story');
 const choicesElement = document.getElementById('choices');
 const difficultySelect = document.getElementById('difficulty');
 const themeSelect = document.getElementById('theme');
+const newStoryButton = document.getElementById('new-story-btn');
 
 const stories = [
     {
@@ -19,8 +20,14 @@ const stories = [
 ];
 
 function getRandomStory() {
-    const randomIndex = Math.floor(Math.random() * stories.length);
-    return stories[randomIndex];
+    const difficulty = difficultySelect.value;
+    const filteredStories = stories.filter(story => {
+        if (difficulty === 'easy') return true; // Include all stories
+        if (difficulty === 'medium') return Object.keys(story).length > 5;
+        if (difficulty === 'hard') return Object.keys(story).length > 10;
+    });
+    const randomIndex = Math.floor(Math.random() * filteredStories.length);
+    return filteredStories[randomIndex];
 }
 
 function updateStory(element) {
@@ -43,11 +50,21 @@ function updateTheme(theme) {
     });
 }
 
+difficultySelect.addEventListener('change', () => {
+    gameData = getRandomStory();
+    updateStory(gameData.start);
+});
+
 themeSelect.addEventListener('change', (event) => {
     updateTheme(event.target.value);
 });
 
+newStoryButton.addEventListener('click', () => {
+    gameData = getRandomStory();
+    updateStory(gameData.start);
+});
+
 // Start the game with a random story
-const gameData = getRandomStory();
+let gameData = getRandomStory();
 updateStory(gameData.start);
 updateTheme(themeSelect.value);
