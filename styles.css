@@ -20,13 +20,8 @@ body {
     cursor: pointer;
 }
 
-#story, #clues, #points, #round {
+#story, #clue, #points, #round {
     margin-top: 20px;
-}
-
-#reason {
-    width: 100%;
-    height: 100px;
 }
 
 .dark-theme {
