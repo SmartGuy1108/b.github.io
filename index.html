@@ -25,7 +25,7 @@
                 <button onclick="interrogate('Diana')">Interrogate Diana</button>
             </div>
             <div id="story"></div>
-            <div id="clues"></div>
+            <div id="clue"></div>
             <div id="murder-selection" style="display: none;">
                 <h2>Select the Murderer</h2>
                 <select id="murderer">
@@ -34,7 +34,11 @@
                     <option value="Charlie">Charlie</option>
                     <option value="Diana">Diana</option>
                 </select>
-                <textarea id="reason" placeholder="Explain why you think they are the murderer..."></textarea>
+                <select id="reason">
+                    <option value="motive">Motive</option>
+                    <option value="alibi">Alibi</option>
+                    <option value="clue">Clue</option>
+                </select>
                 <button onclick="submitSelection()">Submit</button>
             </div>
             <div id="points">Points: 0</div>
