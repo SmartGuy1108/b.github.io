@@ -6,10 +6,10 @@ let points = 0;
 let murderer = getRandomSuspect();
 
 const clues = {
-    Alice: [],
-    Bob: [],
-    Charlie: [],
-    Diana: []
+    Alice: ['Alice has a secret that she\'s not revealing.', 'Alice seems nervous.'],
+    Bob: ['Bob has a strong alibi, but is it too perfect?', 'Bob is calm and collected.'],
+    Charlie: ['Charlie knows a detail that only the perpetrator would know.', 'Charlie is agitated.'],
+    Diana: ['Diana has a bruise on her arm that seems suspicious.', 'Diana is in tears.']
 };
 
 function changeTheme() {
@@ -27,38 +27,38 @@ function getRandomSuspect() {
     return suspects[Math.floor(Math.random() * suspects.length)];
 }
 
+function getRandomClue(character) {
+    return clues[character][Math.floor(Math.random() * clues[character].length)];
+}
+
 function interrogate(character) {
     if (!interrogatedCharacters.includes(character)) {
         interrogatedCharacters.push(character);
 
         let story = '';
-        let clue = '';
+        const clue = getRandomClue(character);
 
         switch (character) {
             case 'Alice':
                 story = 'Alice seems nervous. She says she saw someone running away from the crime scene but couldn\'t identify them. You sense she\'s hiding something.';
-                clue = 'Alice has a secret that she\'s not revealing.';
                 break;
             case 'Bob':
                 story = 'Bob is calm and collected. He claims he was at the bar all night and has an alibi. However, you find his story too perfect.';
-                clue = 'Bob has a strong alibi, but is it too perfect?';
                 break;
             case 'Charlie':
                 story = 'Charlie is agitated and avoids eye contact. He insists he knows nothing but slips up, mentioning a detail only the perpetrator would know.';
-                clue = 'Charlie knows a detail that only the perpetrator would know.';
                 break;
             case 'Diana':
                 story = 'Diana is in tears. She says she\'s been framed and begs you to believe her. You notice she has a strange bruise on her arm.';
-                clue = 'Diana has a bruise on her arm that seems suspicious.';
                 break;
         }
 
-        clues[character].push(clue);
         updateStory(character, story);
-        updateClues(character);
+        updateClue(clue);
 
         if (interrogatedCharacters.length === 4) {
             document.getElementById('murder-selection').style.display = 'block';
+            generateReasonOptions();
         }
     } else {
         alert('You have already interrogated this character. Choose someone else.');
@@ -67,17 +67,24 @@ function interrogate(character) {
 
 function updateStory(character, story) {
     const storyElement = document.getElementById('story');
-    storyElement.innerText += `\n\nInterrogation with ${character}:\n${story}`;
+    storyElement.innerText = `Interrogation with ${character}:\n${story}`;
 }
 
-function updateClues(character) {
-    const cluesElement = document.getElementById('clues');
-    cluesElement.innerText = 'Clues found so far:\n';
-    for (const char of interrogatedCharacters) {
-        cluesElement.innerText += `\n${char}:\n`;
-        for (const clue of clues[char]) {
-            cluesElement.innerText += `- ${clue}\n`;
-        }
+function updateClue(clue) {
+    const clueElement = document.getElementById('clue');
+    clueElement.innerText = `New Clue: ${clue}`;
+}
+
+function generateReasonOptions() {
+    const reasons = ['Motive', 'Alibi', 'Clue'];
+    const reasonSelect = document.getElementById('reason');
+    reasonSelect.innerHTML = '';
+
+    for (const reason of reasons) {
+        const option = document.createElement('option');
+        option.value = reason;
+        option.text = reason;
+        reasonSelect.add(option);
     }
 }
 
@@ -99,13 +106,9 @@ function startNewRound() {
     currentRound++;
     document.getElementById('round').innerText = `Round: ${currentRound}`;
     interrogatedCharacters = [];
-    clues.Alice = [];
-    clues.Bob = [];
-    clues.Charlie = [];
-    clues.Diana = [];
     murderer = getRandomSuspect();
     document.getElementById('story').innerText = '';
-    document.getElementById('clues').innerText = '';
+    document.getElementById('clue').innerText = '';
     document.getElementById('murder-selection').style.display = 'none';
 }
 
