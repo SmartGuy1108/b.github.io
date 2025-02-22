@@ -1,4 +1,8 @@
 // script.js
+let interrogatedCharacters = [];
+const characters = ['Alice', 'Bob', 'Charlie', 'Diana'];
+let murderer = characters[Math.floor(Math.random() * characters.length)];
+
 function changeTheme() {
     const theme = document.querySelector('input[name="theme"]:checked').value;
     if (theme === 'dark') {
@@ -11,8 +15,11 @@ function changeTheme() {
 }
 
 function interrogate(character) {
-    let story = '';
+    if (!interrogatedCharacters.includes(character)) {
+        interrogatedCharacters.push(character);
+    }
 
+    let story = '';
     switch(character) {
         case 'Alice':
             story = 'Alice seems nervous. She says she saw someone running away from the crime scene but couldn\'t identify them. You sense she\'s hiding something.';
@@ -29,6 +36,19 @@ function interrogate(character) {
     }
 
     document.getElementById('story').innerText = story;
+
+    if (interrogatedCharacters.length === 4) {
+        document.querySelector('.characters').style.display = 'none';
+        document.getElementById('finalChoice').style.display = 'block';
+    }
+}
+
+function chooseMurderer(selectedCharacter) {
+    const finalMessage = selectedCharacter === murderer ? 'You got it! The murderer is indeed ' + murderer + '.' : 'Wrong choice! The murderer was ' + murderer + '.';
+    document.getElementById('story').innerText = finalMessage;
+    document.getElementById('finalChoice').style.display = 'none';
+    interrogatedCharacters = [];
+    murderer = characters[Math.floor(Math.random() * characters.length)];
 }
 
 // Set initial theme
