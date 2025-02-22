@@ -6,15 +6,15 @@
     <title>Murder Mystery Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="dark-theme">
     <div class="container">
         <h1>Murder Mystery Game</h1>
         <div>
-            <label for="theme">Theme:</label>
-            <select id="theme" onchange="changeTheme()">
-                <option value="dark">Dark Mode</option>
-                <option value="light">Light Mode</option>
-            </select>
+            <label>Theme:</label>
+            <input type="radio" id="dark" name="theme" value="dark" checked onclick="changeTheme()">
+            <label for="dark">Dark Mode</label>
+            <input type="radio" id="light" name="theme" value="light" onclick="changeTheme()">
+            <label for="light">Light Mode</label>
         </div>
         <div id="game">
             <p>Welcome to the murder mystery game! Your mission is to solve the mystery by finding clues and interviewing suspects.</p>
