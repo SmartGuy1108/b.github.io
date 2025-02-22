@@ -1,117 +1,25 @@
 /* styles.css */
-
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .container {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-h1 {
     text-align: center;
+    padding: 20px;
 }
 
-#story {
-    margin-bottom: 20px;
+#game {
+    margin-top: 20px;
 }
 
-#choices button {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.dark-theme {
+    background-color: black;
+    color: white;
 }
 
-#choices button:hover {
-    background-color: #0056b3;
-}
-
-button#new-story-btn {
-    margin: 10px 0;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #28a745;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button#new-story-btn:hover {
-    background-color: #218838;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-.container.dark-mode {
-    background-color: #444;
-    color: #fff;
-}
-
-#choices button.dark-mode {
-    background-color: #007bff;
-    color: #fff;
-}
-
-#choices button.dark-mode:hover {
-    background-color: #0056b3;
-}
-
-button#new-story-btn.dark-mode {
-    background-color: #28a745;
-    color: #fff;
-}
-
-button#new-story-btn.dark-mode:hover {
-    background-color: #218838;
-}
-
-/* Light Mode */
-body.light-mode {
-    background-color: #f2f2f2;
-    color: #333;
-}
-
-.container.light-mode {
-    background-color: #fff;
-    color: #333;
-}
-
-#choices button.light-mode {
-    background-color: #007bff;
-    color: #fff;
-}
-
-#choices button.light-mode:hover {
-    background-color: #0056b3;
-}
-
-button#new-story-btn.light-mode {
-    background-color: #28a745;
-    color: #fff;
-}
-
-button#new-story-btn.light-mode:hover {
-    background-color: #218838;
+.light-theme {
+    background-color: white;
+    color: black;
 }
