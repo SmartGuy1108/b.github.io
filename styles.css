@@ -14,10 +14,19 @@ body {
     margin-top: 20px;
 }
 
-.characters button, #finalChoice button {
+.characters button {
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
+}
+
+#story, #clues, #points, #round {
+    margin-top: 20px;
+}
+
+#reason {
+    width: 100%;
+    height: 100px;
 }
 
 .dark-theme {
