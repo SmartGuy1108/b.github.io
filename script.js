@@ -1,6 +1,6 @@
 // script.js
 function changeTheme() {
-    const theme = document.getElementById('theme').value;
+    const theme = document.querySelector('input[name="theme"]:checked').value;
     if (theme === 'dark') {
         document.body.classList.remove('light-theme');
         document.body.classList.add('dark-theme');
