@@ -14,7 +14,7 @@ body {
     margin-top: 20px;
 }
 
-.characters button {
+.characters button, #finalChoice button {
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
