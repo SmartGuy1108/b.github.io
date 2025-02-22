@@ -25,13 +25,20 @@
                 <button onclick="interrogate('Diana')">Interrogate Diana</button>
             </div>
             <div id="story"></div>
-            <div id="finalChoice" style="display: none;">
-                <p>Who do you think is the murderer?</p>
-                <button onclick="chooseMurderer('Alice')">Alice</button>
-                <button onclick="chooseMurderer('Bob')">Bob</button>
-                <button onclick="chooseMurderer('Charlie')">Charlie</button>
-                <button onclick="chooseMurderer('Diana')">Diana</button>
+            <div id="clues"></div>
+            <div id="murder-selection" style="display: none;">
+                <h2>Select the Murderer</h2>
+                <select id="murderer">
+                    <option value="Alice">Alice</option>
+                    <option value="Bob">Bob</option>
+                    <option value="Charlie">Charlie</option>
+                    <option value="Diana">Diana</option>
+                </select>
+                <textarea id="reason" placeholder="Explain why you think they are the murderer..."></textarea>
+                <button onclick="submitSelection()">Submit</button>
             </div>
+            <div id="points">Points: 0</div>
+            <div id="round">Round: 1</div>
         </div>
     </div>
     <script src="script.js"></script>
