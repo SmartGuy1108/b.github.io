@@ -9,20 +9,17 @@
 <body>
     <div class="container">
         <h1>Murder Mystery Game</h1>
-        <label for="difficulty">Choose difficulty:</label>
-        <select id="difficulty">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>
-        <label for="theme">Choose theme:</label>
-        <select id="theme">
-            <option value="light">Light Mode</option>
-            <option value="dark">Dark Mode</option>
-        </select>
-        <button id="new-story-btn">New Story</button>
-        <div id="story"></div>
-        <div id="choices"></div>
+        <div>
+            <label for="theme">Theme:</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="dark">Dark Mode</option>
+                <option value="light">Light Mode</option>
+            </select>
+        </div>
+        <div id="game">
+            <p>Welcome to the murder mystery game! Your mission is to solve the mystery by finding clues and interviewing suspects.</p>
+            <!-- Add more game content here -->
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
