@@ -18,7 +18,13 @@
         </div>
         <div id="game">
             <p>Welcome to the murder mystery game! Your mission is to solve the mystery by finding clues and interviewing suspects.</p>
-            <!-- Add more game content here -->
+            <div class="characters">
+                <button onclick="interrogate('Alice')">Interrogate Alice</button>
+                <button onclick="interrogate('Bob')">Interrogate Bob</button>
+                <button onclick="interrogate('Charlie')">Interrogate Charlie</button>
+                <button onclick="interrogate('Diana')">Interrogate Diana</button>
+            </div>
+            <div id="story"></div>
         </div>
     </div>
     <script src="script.js"></script>
