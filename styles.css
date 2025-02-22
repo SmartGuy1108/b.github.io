@@ -14,6 +14,12 @@ body {
     margin-top: 20px;
 }
 
+.characters button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
 .dark-theme {
     background-color: black;
     color: white;
